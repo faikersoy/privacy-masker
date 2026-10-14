@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Instant Auto Privacy Masker v5</title>
+    <title>Instant Auto Privacy Masker</title>
     <style>
         :root {
             --bg: #0f172a;
@@ -24,7 +24,7 @@
             margin: 0 auto;
             display: flex;
             flex-direction: column;
-            gap: 16px;
+            gap: 20px;
         }
         header {
             display: flex;
@@ -51,7 +51,7 @@
         }
         textarea {
             width: 100%;
-            height: 320px;
+            height: 260px;
             background: var(--card);
             border: 1px solid var(--border);
             border-radius: 8px;
@@ -85,14 +85,27 @@
             font-size: 0.85rem;
             color: #94a3b8;
         }
+        .info-section {
+            background: var(--card);
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            font-size: 0.9rem;
+            line-height: 1.5;
+            color: #cbd5e1;
+        }
+        .info-section h3 {
+            margin-top: 0;
+            color: var(--text);
+        }
     </style>
 </head>
 <body>
 
 <div class="container">
     <header>
-        <h2>🛡️ Automated Privacy Masker v5</h2>
-        <span class="badge">Non-Overlapping Engine</span>
+        <h2>🛡️ Instant Offline AI Privacy Masker</h2>
+        <span class="badge">100% Client-Side & Offline</span>
     </header>
 
     <div class="controls">
@@ -110,6 +123,13 @@
             <textarea id="outputText" readonly placeholder="Sanitized text will appear here immediately..."></textarea>
         </div>
     </div>
+
+    <!-- Açıklama Alanı (Canlı Sitede Görünmesi İçin) -->
+    <div class="info-section">
+        <h3>About This Tool / Bu Araç Hakkında</h3>
+        <p>A lightweight, 100% client-side tool designed to automatically detect and mask Personally Identifiable Information (PII) before sending prompts or text data to Large Language Models (LLMs). Runs entirely within your browser's local memory with zero external dependencies.</p>
+        <p><em>Büyük Dil Modellerine (LLM) veri göndermeden önce kişisel bilgileri otomatik olarak maskeleyen %100 yerel ve çevrimdışı araçtır. Verileriniz tarayıcınızdan asla çıkmaz.</em></p>
+    </div>
 </div>
 
 <script>
@@ -124,7 +144,6 @@
 
         let totalMasked = 0;
 
-        // Helper function to replace matches safely without cascading overlaps
         function replaceAll(regex, tag) {
             text = text.replace(regex, (match) => {
                 if (match.includes('__TOKEN_')) return match;
@@ -133,25 +152,13 @@
             });
         }
 
-        // 1. Emails
         replaceAll(/\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b/g, 'EMAIL');
-
-        // 2. Credit Cards
         replaceAll(/\b(?:\d{4}[ -]?){3}\d{4}\b/g, 'CREDIT_CARD');
-
-        // 3. IPv4 Addresses
         replaceAll(/\b(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\b/g, 'IPV4');
-
-        // 4. Strict 11-Digit IDs (TC Kimlik / SSN starting with 1-9)
         replaceAll(/\b[1-9]\d{10}\b/g, 'TC_OR_SSN');
-
-        // 5. Turkish Mobile Numbers (05xx...)
         replaceAll(/\b05\d{9}\b/g, 'PHONE');
-
-        // 6. General International / Formatted Phones
         replaceAll(/(?:\+?\d{1,3}[\s.-]?)?(?:\(\d{3}\)|\d{3})[\s.-]?\d{3}[\s.-]?\d{4}\b/g, 'PHONE');
 
-        // 7. Names & Proper Nouns
         const properNounRegex = /(?<!\.\s+|\?\s+|\!\s+|^)\b[A-ZÇĞİÖŞÜ][a-zçğıöşü]{2,}(?:\s+[A-ZÇĞİÖŞÜ][a-zçğıöşü]{2,})*\b/g;
         const stopwords = new Set(["The", "This", "That", "There", "Here", "What", "When", "Where", "Which", "With", "From", "About", "Please", "Bu", "Şu", "O", "Bunun", "Şunun", "Onun", "Evet", "Hayır"]);
         
@@ -161,7 +168,6 @@
             return `__TOKEN_NAME_${Math.random().toString(36).substring(7)}__`;
         });
 
-        // Final cleanup pass: convert unique tokens into clean standard tags
         text = text.replace(/__TOKEN_EMAIL_[a-z0-9]+__/g, '[MASKED_EMAIL]');
         text = text.replace(/__TOKEN_CREDIT_CARD_[a-z0-9]+__/g, '[MASKED_CREDIT_CARD]');
         text = text.replace(/__TOKEN_TC_OR_SSN_[a-z0-9]+__/g, '[MASKED_TC_OR_SSN]');
