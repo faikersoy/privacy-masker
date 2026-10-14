@@ -34,13 +34,28 @@ Runs entirely within your browser's local memory with **zero external dependenci
 
 ---
 
-## 🚀 How to Use
-### Nasıl Kullanılır
+---
 
-1. Download or clone this repository. *(Bu deposu indirin veya klonlayın.)*
-2. Locate the `privacy_mask.html` file. *( `privacy_mask.html` dosyasını bulun.)*
-3. Double-click the file to open it in **Chrome, Firefox, Edge, or Safari**. *(Dosyaya çift tıklayarak Chrome, Firefox, Edge veya Safari'de açın.)*
-4. Paste your sensitive text into the **Original Text** box—the sanitized version will appear instantly in the output box, ready to copy into your GenAI tool of choice. *(Hassas metninizi **Original Text** kutusuna yapıştırın; temizlenmiş sürüm anında çıktı kutusunda görünecektir ve dilediğiniz yapay zeka aracına kopyalamaya hazırdır.)*
+---
+
+## 🚀 How to Use & Offline Installation
+### Nasıl Kullanılır ve Çevrimdışı Kurulum
+
+You can use this tool either directly online via GitHub Pages, or download it to run 100% offline on your local machine:
+> Bu aracı ister doğrudan çevrimiçi olarak GitHub Pages üzerinden kullanabilir, ister yerel makinenizde %100 çevrimdışı çalıştırmak için indirebilirsiniz:
+
+### 1. Online Usage (Live Demo) / Çevrimiçi Kullanım (Canlı Demo)
+* Simply visit the live web application: **[Live Demo Link](https://faikersoy.github.io/privacy-masker/)**
+* *Canlı web uygulamasını ziyaret edin:* **[Canlı Demo Linki](https://faikersoy.github.io/privacy-masker/)**
+
+### 2. Offline / Local Usage (Download ZIP) / Çevrimdışı / Yerel Kullanım (ZIP İndir)
+1. Go to the main GitHub repository page: [GitHub Repository](https://github.com/faikersoy/privacy-masker)
+2. Click the green **`<> Code`** button in the top right and select **`Download ZIP`**.
+3. Extract the ZIP file and double-click the **`index.html`** file to run it instantly in your browser, even without an internet connection.
+
+> 1. Ana GitHub depo sayfasına gidin: [GitHub Deposu](https://github.com/faikersoy/privacy-masker)
+> 2. Sağ üstteki yeşil **`<> Code`** butonuna tıklayın ve **`Download ZIP`** seçeneğini seçin.
+> 3. ZIP dosyasını klasöre çıkartın ve internet bağlantınız olmasa bile tarayıcınızda anında çalıştırmak için **`index.html`** dosyasına çift tıklayın.
 
 ---
 
