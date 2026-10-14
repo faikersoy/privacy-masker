@@ -11,92 +11,182 @@
             --text: #f8fafc;
             --accent: #2563eb;
             --border: #334155;
+            --success: #10b981;
         }
-        body {
-            font-family: system-ui, -apple-system, sans-serif;
-            background: var(--bg);
-            color: var(--text);
+
+        * {
+            box-sizing: border-box;
             margin: 0;
-            padding: 24px;
+            padding: 0;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
         }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            padding: 2rem 1rem;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+        }
+
         .container {
+            width: 100%;
             max-width: 1000px;
-            margin: 0 auto;
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 1.5rem;
         }
+
         header {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding-bottom: 1rem;
             border-bottom: 1px solid var(--border);
-            padding-bottom: 12px;
+            flex-wrap: wrap;
+            gap: 1rem;
         }
-        .badge {
-            background: #059669;
-            color: white;
+
+        .header-title-group {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .header-title-group h2 {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1.5rem;
+        }
+
+        .docs-link {
+            color: #94a3b8;
+            text-decoration: none;
+            font-size: 0.85rem;
+            border: 1px solid var(--border);
             padding: 4px 10px;
+            border-radius: 6px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: var(--card);
+            transition: all 0.2s ease;
+        }
+
+        .docs-link:hover {
+            color: var(--text);
+            border-color: var(--accent);
+        }
+
+        .badge {
+            background: #064e3b;
+            color: #34d399;
+            padding: 0.4rem 0.8rem;
             border-radius: 9999px;
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             font-weight: 600;
         }
-        .grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 16px;
-        }
-        @media (max-width: 768px) {
-            .grid { grid-template-columns: 1fr; }
-        }
-        textarea {
-            width: 100%;
-            height: 260px;
-            background: var(--card);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            color: var(--text);
-            padding: 12px;
-            font-family: monospace;
-            font-size: 0.95rem;
-            resize: vertical;
-            box-sizing: border-box;
-        }
+
         .controls {
-            background: var(--card);
-            padding: 12px 16px;
-            border-radius: 8px;
-            border: 1px solid var(--border);
             display: flex;
             justify-content: space-between;
             align-items: center;
-        }
-        button {
-            background: #059669;
-            color: white;
-            border: none;
-            padding: 8px 16px;
-            border-radius: 6px;
-            cursor: pointer;
-            font-weight: 600;
-        }
-        button:hover { opacity: 0.9; }
-        .stats {
-            font-size: 0.85rem;
-            color: #94a3b8;
-        }
-        .info-section {
             background: var(--card);
-            padding: 20px;
+            padding: 1rem;
             border-radius: 8px;
             border: 1px solid var(--border);
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .info-text {
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+
+        .btn {
+            background: var(--success);
+            color: white;
+            border: none;
+            padding: 0.6rem 1.2rem;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .panel {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .panel label {
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        textarea {
+            width: 100%;
+            height: 320px;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1rem;
+            color: var(--text);
+            font-family: monospace;
+            font-size: 0.95rem;
+            resize: vertical;
+            outline: none;
+        }
+
+        textarea:focus {
+            border-color: var(--accent);
+        }
+
+        .about-box {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.2rem;
+            margin-top: 0.5rem;
+        }
+
+        .about-box h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.6rem;
+            color: var(--text);
+        }
+
+        .about-box p {
+            color: #94a3b8;
             font-size: 0.9rem;
             line-height: 1.5;
-            color: #cbd5e1;
+            margin-bottom: 0.5rem;
         }
-        .info-section h3 {
-            margin-top: 0;
-            color: var(--text);
+
+        .about-box p.tr {
+            font-style: italic;
+            margin-bottom: 0;
         }
     </style>
 </head>
@@ -104,96 +194,120 @@
 
 <div class="container">
     <header>
-       <header style="display: flex; justify-content: space-between; align-items: center; gap: 16px; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px solid var(--border); flex-wrap: wrap;">
-        <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
-            <h2 style="margin: 0; display: flex; align-items: center; gap: 8px;">
-                <span>🛡️</span> Instant Offline AI Privacy Masker
-            </h2>
-            <a href="https://github.com/faikersoy/privacy-masker#readme" target="_blank" style="color: #94a3b8; text-decoration: none; font-size: 0.85rem; border: 1px solid var(--border); padding: 4px 10px; border-radius: 6px; display: inline-flex; align-items: center; gap: 6px; background: var(--card); transition: all 0.2s ease;" title="View Documentation / Dokümantasyonu Görüntüle">
+        <div class="header-title-group">
+            <h2>🛡️ Instant Offline AI Privacy Masker</h2>
+            <a href="https://github.com/faikersoy/privacy-masker#readme" target="_blank" class="docs-link" title="View Documentation / Dokümantasyonu Görüntüle">
                 📖 README / Docs
             </a>
         </div>
-        <span class="badge" style="margin: 0;">100% Client-Side & Offline</span>
-    </header>
+        <span class="badge">100% Client-Side & Offline</span>
     </header>
 
     <div class="controls">
-        <div class="stats" id="statusLog">Type or paste text to automatically detect & mask PII.</div>
-        <button onclick="copyOutput()">Copy Clean Text</button>
+        <span class="info-text">Type or paste text to automatically detect & mask PII.</span>
+        <button class="btn" onclick="copyCleanText()">Copy Clean Text</button>
     </div>
 
     <div class="grid">
-        <div>
-            <h3>Original Text</h3>
-            <textarea id="inputText" placeholder="Paste test text here..." oninput="autoMask()"></textarea>
+        <div class="panel">
+            <label for="input">Original Text</label>
+            <textarea id="input" placeholder="Paste test text here..."></textarea>
         </div>
-        <div>
-            <h3>Auto-Masked Output</h3>
-            <textarea id="outputText" readonly placeholder="Sanitized text will appear here immediately..."></textarea>
+        <div class="panel">
+            <label for="output">Auto-Masked Output</label>
+            <textarea id="output" readonly placeholder="Sanitized text will appear here immediately..."></textarea>
         </div>
     </div>
 
-    <!-- Açıklama Alanı (Canlı Sitede Görünmesi İçin) -->
-    <div class="info-section">
+    <div class="about-box">
         <h3>About This Tool / Bu Araç Hakkında</h3>
         <p>A lightweight, 100% client-side tool designed to automatically detect and mask Personally Identifiable Information (PII) before sending prompts or text data to Large Language Models (LLMs). Runs entirely within your browser's local memory with zero external dependencies.</p>
-        <p><em>Büyük Dil Modellerine (LLM) veri göndermeden önce kişisel bilgileri otomatik olarak maskeleyen %100 yerel ve çevrimdışı araçtır. Verileriniz tarayıcınızdan asla çıkmaz.</em></p>
+        <p class="tr">Büyük Dil Modellerine (LLM) veri göndermeden önce kişisel bilgileri otomatik olarak maskeleyen %100 yerel ve çevrimdışı araçtır. Verileriniz tarayıcınızdan asla çıkmaz.</p>
     </div>
 </div>
 
 <script>
-    function autoMask() {
-        let text = document.getElementById('inputText').value;
+    const inputArea = document.getElementById('input');
+    const outputArea = document.getElementById('output');
 
-        if (!text.trim()) {
-            document.getElementById('outputText').value = '';
-            document.getElementById('statusLog').innerText = 'Ready.';
-            return;
+    function maskPII(text) {
+        if (!text) return '';
+
+        const entities = [];
+
+        function collectMatches(regex, maskLabel) {
+            let match;
+            while ((match = regex.exec(text)) !== null) {
+                entities.push({
+                    start: match.index,
+                    end: match.index + match[0].length,
+                    mask: maskLabel
+                });
+            }
         }
 
-        let totalMasked = 0;
+        // Email
+        collectMatches(/[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/g, '[EMAIL]');
 
-        function replaceAll(regex, tag) {
-            text = text.replace(regex, (match) => {
-                if (match.includes('__TOKEN_')) return match;
-                totalMasked++;
-                return `__TOKEN_${tag}_${Math.random().toString(36).substring(7)}__`;
-            });
+        // Phone Numbers
+        collectMatches(/(?:\+?\d{1,3}[-.\s]?)?\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}/g, '[PHONE]');
+
+        // Credit Card Numbers
+        collectMatches(/\b(?:\d[ -]*?){13,16}\b/g, '[CREDIT_CARD]');
+
+        // TC Kimlik No / SSN (11 digits)
+        collectMatches(/\b\d{11}\b/g, '[NATIONAL_ID]');
+
+        // IPv4 Addresses
+        collectMatches(/\b(?:[0-9]{1,3}\.){3}[0-9]{1,3}\b/g, '[IP_ADDRESS]');
+
+        // Proper Nouns (Capitalized words, excluding line starts)
+        collectMatches(/(?<=\s)[A-ZÇĞİÖŞÜ][a-zçğıöşü]+(?=\s|$)/g, '[PROPER_NOUN]');
+
+        // Sort entities by start index
+        entities.sort((a, b) => a.start - b.start);
+
+        // Remove overlapping matches
+        const filteredEntities = [];
+        let lastEnd = 0;
+
+        for (const entity of entities) {
+            if (entity.start >= lastEnd) {
+                filteredEntities.push(entity);
+                lastEnd = entity.end;
+            }
         }
 
-        replaceAll(/\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b/g, 'EMAIL');
-        replaceAll(/\b(?:\d{4}[ -]?){3}\d{4}\b/g, 'CREDIT_CARD');
-        replaceAll(/\b(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\b/g, 'IPV4');
-        replaceAll(/\b[1-9]\d{10}\b/g, 'TC_OR_SSN');
-        replaceAll(/\b05\d{9}\b/g, 'PHONE');
-        replaceAll(/(?:\+?\d{1,3}[\s.-]?)?(?:\(\d{3}\)|\d{3})[\s.-]?\d{3}[\s.-]?\d{4}\b/g, 'PHONE');
+        // Rebuild string with masks
+        let result = '';
+        let currentIndex = 0;
 
-        const properNounRegex = /(?<!\.\s+|\?\s+|\!\s+|^)\b[A-ZÇĞİÖŞÜ][a-zçğıöşü]{2,}(?:\s+[A-ZÇĞİÖŞÜ][a-zçğıöşü]{2,})*\b/g;
-        const stopwords = new Set(["The", "This", "That", "There", "Here", "What", "When", "Where", "Which", "With", "From", "About", "Please", "Bu", "Şu", "O", "Bunun", "Şunun", "Onun", "Evet", "Hayır"]);
-        
-        text = text.replace(properNounRegex, (match) => {
-            if (stopwords.has(match) || match.includes('__TOKEN_')) return match;
-            totalMasked++;
-            return `__TOKEN_NAME_${Math.random().toString(36).substring(7)}__`;
-        });
+        for (const entity of filteredEntities) {
+            result += text.slice(currentIndex, entity.start);
+            result += entity.mask;
+            currentIndex = entity.end;
+        }
 
-        text = text.replace(/__TOKEN_EMAIL_[a-z0-9]+__/g, '[MASKED_EMAIL]');
-        text = text.replace(/__TOKEN_CREDIT_CARD_[a-z0-9]+__/g, '[MASKED_CREDIT_CARD]');
-        text = text.replace(/__TOKEN_TC_OR_SSN_[a-z0-9]+__/g, '[MASKED_TC_OR_SSN]');
-        text = text.replace(/__TOKEN_PHONE_[a-z0-9]+__/g, '[MASKED_PHONE]');
-        text = text.replace(/__TOKEN_IPV4_[a-z0-9]+__/g, '[MASKED_IPV4]');
-        text = text.replace(/__TOKEN_NAME_[a-z0-9]+__/g, '[MASKED_NAME]');
+        result += text.slice(currentIndex);
 
-        document.getElementById('outputText').value = text;
-        document.getElementById('statusLog').innerText = `Redacted ${totalMasked} item(s) cleanly without overlaps.`;
+        return result;
     }
 
-    function copyOutput() {
-        const output = document.getElementById('outputText');
-        if (!output.value) return;
-        output.select();
-        navigator.clipboard.writeText(output.value);
-        document.getElementById('statusLog').innerText = 'Copied clean text!';
+    inputArea.addEventListener('input', () => {
+        outputArea.value = maskPII(inputArea.value);
+    });
+
+    function copyCleanText() {
+        if (!outputArea.value) return;
+        outputArea.select();
+        navigator.clipboard.writeText(outputArea.value).then(() => {
+            const btn = document.querySelector('.btn');
+            const originalText = btn.innerText;
+            btn.innerText = 'Copied!';
+            setTimeout(() => {
+                btn.innerText = originalText;
+            }, 2000);
+        });
     }
 </script>
 
